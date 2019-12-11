@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS player_income;
 DROP TABLE IF EXISTS area_income;
 
 CREATE TABLE player_stats(
-    name VARCHAR PRIMARY KEY NOT NULL,
-    age INT,
+    name VARCHAR NOT NULL,
+    age FLOAT,
     birth_place VARCHAR,
     birthday DATE,
     weight_lbs FLOAT,
@@ -22,7 +22,7 @@ CREATE TABLE player_stats(
 );
 
 CREATE TABLE player_income(
-    player VARCHAR PRIMARY KEY NOT NULL, 
+    player VARCHAR NOT NULL, 
     rank FLOAT,  
     position VARCHAR,
     team VARCHAR,
@@ -39,10 +39,10 @@ CREATE TABLE area_income(
     place VARCHAR, 
     type VARCHAR, 
     primary_type VARCHAR, 
-    zip_code INT, 
+    zip_code VARCHAR, 
     area_code INT, 
-    a_land INT, 
-    a_water INT,
+    a_land VARCHAR, 
+    a_water VARCHAR,
     lat FLOAT,
     lon FLOAT,
     mean INT,
