@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NFL Stats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- The biggest bucket.  Everything is in here. -->
+    <div id="container">
+
+        <!-- Page header -->
+        <div id="header"></div>
+
+        <!-- The left ~60% of the page -->
+        <div class="pane" id="left-pane">
+
+            <!-- Geographical heat map -->
+            <div id="heat-map"></div>
+
+            <!-- Stuff under the map -->
+            <div id="map-accessories">
+
+                <!-- Key to the map -->
+                <div id="map-key"></div>
+
+                <!-- Toggle to switch between hometown and college -->
+                <div id="origin-toggle"></div>
+            </div>
+        </div>
+
+        <!-- The right ~40% of the page -->
+        <div class="pane" id="right-pane">
+
+            <!-- A box of text explaining the purpose of the page, etc. -->
+            <div id="introduction"></div>
+        </div>
+    </div>
+
+    <!-- Source the javascript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
