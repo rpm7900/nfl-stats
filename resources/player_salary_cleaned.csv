@@ -1,4 +1,4 @@
-player,rank,position,team,cap_hit
+name,rank,position,team,cap_hit
 Kirk Cousins,1.0,QB,WAS,"$23,943,600"
 Trumaine Johnson,2.0,CB,LAR,"$16,742,400"
 Josh Norman,3.0,CB,WAS,"$16,500,000"
