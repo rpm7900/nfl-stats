@@ -22,7 +22,7 @@ CREATE TABLE player_stats(
 );
 
 CREATE TABLE player_income(
-    player VARCHAR NOT NULL, 
+    name VARCHAR NOT NULL, 
     rank FLOAT,  
     position VARCHAR,
     team VARCHAR,
@@ -39,8 +39,8 @@ CREATE TABLE area_income(
     place VARCHAR, 
     type VARCHAR, 
     primary_type VARCHAR, 
-    zip_code VARCHAR, 
-    area_code INT, 
+    zip_code INT, 
+    area_code VARCHAR, 
     a_land VARCHAR, 
     a_water VARCHAR,
     lat FLOAT,
