@@ -1,67 +1,93 @@
-//  Install and load the required packages (leaflet).
+// Define SVG area dimensions
+var svgWidth = 960;
+var svgHeight = 660;
 
-    if (!require("leaflet")) install.packages("leaflet")
-    library(leaflet)
+// set the dimensions and margins of the graph
+var chartMargin = {
+    top: 20,
+    right: 30,
+    bottom: 30,
+    left: 80
+};
+
+// Define dimensions of the chart area
+var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
+var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
+
+// Select body, append SVG area to it and set the dimensions
+var svg = d3.select("body")
+    .append("svg")
+    .attr("height", svgHeight)
+    .attr("width", svgWidth);
+
+//Append a group to the SVG area and shift ('translate') it to the right
+var chartGroup = svg.append("g")
+    .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`)
+
+//Read the data
+d3.json("/api/player_income_data").then(player_income_data => {
+    console.log('This worked');
+    console.log(player_income_data);
+
     
-//   Load the NFL venue location data set and convert the header names to lowercase for consistent formatting.
+    //Add x axis
+    var x = d3.scaleLinear()
+        .domain([0, d3.max(HealthData, d => d.poverty)])
+        .range([0, chartWidth]);
+
+
+    //Add y axis
+    var y = d3.scaleLinear()
+        .domain([0, d3.max(HealthData, d => d.healthcare)])
+        .range([chartHeight, 0]);
+
+    //Create two new functions passing out scales in as arguments
+    //These will be used to create the chart's axes
+    var bottomAxis = d3.axisBottom(x);
+    var leftAxis = d3.axisLeft(y);
+
+    //Append two SVG group elements to the chartGroup area,
+    //and create the bottom and left axis inside of them
+    chartGroup.append("g")
+        .call(leftAxis);
+
+    chartGroup.append("g")
+        .attr("transform", `translate(0, ${chartHeight})`)
+        .call(bottomAxis);
+
+    chartGroup.append("text")
+        .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + chartMargin.top + 10})`)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "16px")
+        .attr("font-color", "black")
+        .text("In Poverty (%)")
+
+    chartGroup.append("text")  
+        .attr("transform", "rotate(-90)")
+        .attr("y", 30 - (chartMargin.left))
+        .attr("x",0 - (chartHeight / 2))
+        .attr("text-anchor", "middle")
+        .attr("font-size", "16px")
+        .attr("font-color", "black")
+        .text("Lacks Healthcare (%)")
+
+    states = chartGroup.selectAll(".scatter")
+        .data(HealthData)
+        .enter()
+        .append("g")
+        .attr("class", "state")
     
-    my_venue_file <- read.csv(file = "https://public.opendatasoft.com/explore/dataset/stadiums_nfl/download/?format=csv&timezone=America/New_York&use_labels_for_header=true",
-                                header = TRUE,sep = ";")
-    my_venue_header <- names(my_venue_file)
-    my_venue_header <- tolower(my_venue_header)
-    names(my_venue_file) <- my_venue_header
+    states.append("circle")
+        .attr("cx", d => x(d.poverty))
+        .attr("cy", d => y(d.healthcare))
+        .attr("r", 10)
+        .attr("fill", "teal")
 
-//  Update the location of the LA Rams stadium.
-
-    my_venue_file[10,"latitude"] <- 34.0140526
-    my_venue_file[10,"longitude"] <- -118.2878754    
-    
-//  Evaluate the team names in the data set and assign the mapping icon to the corresponding team logo.
-
-    NFL_icons <- icons(
-      iconUrl =       ifelse(my_venue_file$team=="Pittsburgh Steelers", "http://prod.static.steelers.clubs.nfl.com/assets/images/svg/SteelersMark.svg",
-                      ifelse(my_venue_file$team=="Cleveland Browns","https://static.nfl.com/static/site/img/logos/svg/teams/CLE.svg",
-                      ifelse(my_venue_file$team=="Cincinnati Bengals","https://static.nfl.com/static/site/img/logos/svg/teams/CIN.svg",
-                      ifelse(my_venue_file$team=="Baltimore Ravens","https://static.nfl.com/static/site/img/logos/svg/teams/BAL.svg",
-                      ifelse(my_venue_file$team=="Chicago Bers","https://static.nfl.com/static/site/img/logos/svg/teams/CHI.svg",
-                      ifelse(my_venue_file$team=="Houston Texans","https://static.nfl.com/static/site/img/logos/svg/teams/HOU.svg",
-                      ifelse(my_venue_file$team=="Kansas City Chiefs","https://static.nfl.com/static/site/img/logos/svg/teams/KC.svg",
-                      ifelse(my_venue_file$team=="New Orleans Saints","https://static.nfl.com/static/site/img/logos/svg/teams/NO.svg",
-                      ifelse(my_venue_file$team=="Miami Dolphins","https://static.nfl.com/static/site/img/logos/svg/teams/MIA.svg",
-                      ifelse(my_venue_file$team=="Tampa Bay Buccaneers","https://static.nfl.com/static/site/img/logos/svg/teams/TB.svg",
-                      ifelse(my_venue_file$team=="Atlanta Falcons","https://static.nfl.com/static/site/img/logos/svg/teams/ATL.svg",
-                      ifelse(my_venue_file$team=="Buffalo Bills","https://static.nfl.com/static/site/img/logos/svg/teams/BUF.svg",
-                      ifelse(my_venue_file$team=="San Francisco 49ers","https://static.nfl.com/static/site/img/logos/svg/teams/SF.svg",
-                      ifelse(my_venue_file$team=="St. Louis Rams","https://static.nfl.com/static/site/img/logos/svg/teams/LA.svg",
-                      ifelse(my_venue_file$team=="Jacksonville Jaguars","https://static.nfl.com/static/site/img/logos/svg/teams/JAX.svg",
-                      ifelse(my_venue_file$team=="Philadelphia Eagles","https://static.nfl.com/static/site/img/logos/svg/teams/PHI.svg",
-                      ifelse(my_venue_file$team=="Seattle Seahawks","https://static.nfl.com/static/site/img/logos/svg/teams/SEA.svg",
-                      ifelse(my_venue_file$team=="Oakland Raiders","https://static.nfl.com/static/site/img/logos/svg/teams/OAK.svg",
-                      ifelse(my_venue_file$team=="Dallas Cowboys","https://static.nfl.com/static/site/img/logos/svg/teams/DAL.svg",
-                      ifelse(my_venue_file$team=="Carolina Panthers","https://static.nfl.com/static/site/img/logos/svg/teams/CAR.svg",
-                      ifelse(my_venue_file$team=="New England Patriots","https://static.nfl.com/static/site/img/logos/svg/teams/NE.svg",
-                      ifelse(my_venue_file$team=="Indianapolis Colts","https://static.nfl.com/static/site/img/logos/svg/teams/IND.svg",
-                      ifelse(my_venue_file$team=="Minnesota Vikings","https://static.nfl.com/static/site/img/logos/svg/teams/MIN.svg",
-                      ifelse(my_venue_file$team=="Washington Redskins","https://static.nfl.com/static/site/img/logos/svg/teams/WAS.svg",
-                      ifelse(my_venue_file$team=="Tennessee Titans","https://static.nfl.com/static/site/img/logos/svg/teams/TEN.svg",
-                      ifelse(my_venue_file$team=="San Diego Chargers","https://static.nfl.com/static/site/img/logos/svg/teams/LAC.svg",
-                      ifelse(my_venue_file$team=="Denver Broncos","https://static.nfl.com/static/site/img/logos/svg/teams/DEN.svg",
-                      ifelse(my_venue_file$team=="Detroit Lions","https://static.nfl.com/static/site/img/logos/svg/teams/DET.svg",
-                      ifelse(my_venue_file$team=="Green Bay Packers","https://static.nfl.com/static/site/img/logos/svg/teams/GB.svg",
-                      ifelse(my_venue_file$team=="Arizona Cardinals","https://static.nfl.com/static/site/img/logos/svg/teams/ARI.svg",
-                      ifelse(my_venue_file$team=="New York Giants/ NewYork Jets", "https://static.nfl.com/static/site/img/logos/svg/teams/NYG.svg",""))))))))))))))))))))))))))))))),                         iconWidth = 38, iconHeight = 95,
-      iconAnchorX = 22, iconAnchorY = 94,
-      shadowWidth = 50, shadowHeight = 64,
-      shadowAnchorX = 4, shadowAnchorY = 62
-    
-//   Create a data frame that contains the latitude and longitude of the NFL venue locations
-
-    NFL_team <- as.character(my_venue_file$team)
-    NFL_df <- data.frame(lat=my_venue_file$latitude, lng = my_venue_file$longitude)
-
-//  Create an interactive map of the NFL venue locations using the leaflet package.
-    
-    NFL_df %>%
-      leaflet() %>% 
-      addTiles() %>% 
-      addMarkers(icon=NFL_icons, popup=NFL_team,clusterOptions = markerClusterOptions())
+    states.append("text")
+        .attr("x",d => x(d.poverty))
+        .attr("y", d => y(d.healthcare))
+        .attr("font_family", "sans-serif")
+        .attr("font-size", "10px")
+        .attr("fill", "black")
+        .text(d => d.abbr)
+});
