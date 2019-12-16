@@ -1,7 +1,7 @@
 var teamIcon = L.Icon.extend({
   options: {
-      iconSize:     [28.5, 71.25],
-      
+      iconSize: [30, 40],
+      popupAnchor:  [5, -5]
   }
 });
 
@@ -20,7 +20,7 @@ var cardinalsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/i
     billsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/BUF.svg'})
     sanfranIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/SF.svg'})
     ramsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/LA.svg'})
-    jaguarsIcon = new teamIcon({iconUrl: 'ttps://static.nfl.com/static/site/img/logos/svg/teams/JAX.svg'})
+    jaguarsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/JAX.svg'})
     eaglesIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/PHI.svg'})
     seahawksIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/SEA.svg'})
     raidersIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/OAK.svg'})
@@ -88,7 +88,7 @@ var satellite   = L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', attribution: mb
   streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11',   attribution: mbAttr});
 
 var map = L.map('map', {
-  center: [39.8283, -98.5795],
+  center: [37, -98],
   zoom: 3.5,
   layers: [satellite, cities]
 });
@@ -103,11 +103,3 @@ var overlays = {
 };
 
 L.control.layers(baseLayers, overlays).addTo(map);
-
-
-
-
-
-
-
-
