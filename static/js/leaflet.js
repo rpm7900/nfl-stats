@@ -7,7 +7,7 @@ var teamIcon = L.Icon.extend({
 
 var cardinalsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/ARI.svg'}),
     falconsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/ATL.svg'})
-    steelersIcon = new teamIcon({iconUrl: 'http://prod.static.steelers.clubs.nfl.com/assets/images/svg/SteelersMark.svg'})
+    steelersIcon = new teamIcon({iconUrl: 'https://i.ibb.co/DC08F3d/Steelers-SVG.png', iconSize: [30, 30]})
     brownsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/CLE.svg'})
     bengalsIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/CIN.svg'})
     ravensIcon = new teamIcon({iconUrl: 'https://static.nfl.com/static/site/img/logos/svg/teams/BAL.svg'})
@@ -45,38 +45,38 @@ L.icon = function (options) {
 
 var cities = L.layerGroup();
 
-L.marker([33.5276, -112.2626], {icon: cardinalsIcon}).bindPopup("Cardinals").addTo(cities),
-L.marker([33.7510, -84.4009], {icon: falconsIcon}).bindPopup("Falcons").addTo(cities),
-L.marker([39.2780, -76.6227], {icon: ravensIcon}).bindPopup("Ravens").addTo(cities),
-L.marker([42.7738, -78.7870], {icon: billsIcon}).bindPopup("Bills").addTo(cities),
-L.marker([35.2258, -80.8528], {icon: panthersIcon}).bindPopup("Panthers").addTo(cities),
-L.marker([41.8623, -87.6167], {icon: bearsIcon}).bindPopup("Bears").addTo(cities),
-L.marker([39.0955, -84.5161], {icon: bengalsIcon}).bindPopup("Bengals").addTo(cities),
-L.marker([41.5061, -81.6995], {icon: brownsIcon}).bindPopup("Browns").addTo(cities),
-L.marker([32.7473, -97.0945], {icon: cowboysIcon}).bindPopup("Cowboys").addTo(cities),
-L.marker([39.7439, -105.0201], {icon: broncosIcon}).bindPopup("Broncos").addTo(cities),
-L.marker([42.3400, -83.0456], {icon: lionsIcon}).bindPopup("Lions").addTo(cities),
-L.marker([44.5013, -88.0622], {icon: packersIcon}).bindPopup("Packers").addTo(cities),
-L.marker([29.6847, -95.4107], {icon: texansIcon}).bindPopup("Texans").addTo(cities),
-L.marker([39.7601, -86.1639], {icon: coltsIcon}).bindPopup("Colts").addTo(cities),
-L.marker([30.3240, -81.6373], {icon: jaguarsIcon}).bindPopup("Jaguars").addTo(cities),
-L.marker([39.0489, -94.4839], {icon: chiefsIcon}).bindPopup("Chiefs").addTo(cities),
-L.marker([33.8644, -118.2611], {icon: chargersIcon}).bindPopup("Chargers").addTo(cities),
-L.marker([34.0141, -118.2879], {icon: ramsIcon}).bindPopup("Rams").addTo(cities),
-L.marker([25.9580, -80.2389], {icon: dolphinsIcon}).bindPopup("Dolphins").addTo(cities),
-L.marker([44.9738, -93.2578], {icon: vikingsIcon}).bindPopup("Vikings").addTo(cities),
-L.marker([42.0909, -71.2643], {icon: patriotsIcon}).bindPopup("Patriots").addTo(cities),
-L.marker([29.9511, -90.0812], {icon: saintsIcon}).bindPopup("Saints").addTo(cities),
-L.marker([40.8135, -74.0745], {icon: giantsIcon}).bindPopup("Giants").addTo(cities),
-L.marker([40.8135, -74.0745], {icon: jetsIcon}).bindPopup("Jets").addTo(cities),
-L.marker([36.0909, -115.1833], {icon: raidersIcon}).bindPopup("Raiders").addTo(cities),
-L.marker([39.9008, -75.1675], {icon: eaglesIcon}).bindPopup("Eagles").addTo(cities),
-L.marker([40.4468, -80.0158], {icon: steelersIcon}).bindPopup("Steelers").addTo(cities),
-L.marker([37.4032, -121.9698], {icon: sanfranIcon}).bindPopup("49ers").addTo(cities),
-L.marker([47.5952, -122.3316], {icon: seahawksIcon}).bindPopup("Seahawks").addTo(cities),
-L.marker([27.9759, -82.5033], {icon: buccaneersIcon}).bindPopup("Buccaneers").addTo(cities),
-L.marker([36.1665, -86.7713], {icon: titansIcon}).bindPopup("Titans").addTo(cities),
-L.marker([38.9076, -76.8645], {icon: redskinsIcon}).bindPopup("Redskins").addTo(cities)
+L.marker([33.5276, -112.2626], {icon: cardinalsIcon}).bindPopup("Arizona Cardinals").addTo(cities).on('click', cardinalsClick),
+L.marker([33.7510, -84.4009], {icon: falconsIcon}).bindPopup("Atlanta Falcons").addTo(cities),
+L.marker([39.2780, -76.6227], {icon: ravensIcon}).bindPopup("Baltimore Ravens").addTo(cities),
+L.marker([42.7738, -78.7870], {icon: billsIcon}).bindPopup("Buffalo Bills").addTo(cities),
+L.marker([35.2258, -80.8528], {icon: panthersIcon}).bindPopup("Carolina Panthers").addTo(cities),
+L.marker([41.8623, -87.6167], {icon: bearsIcon}).bindPopup("Daaaa Bears").addTo(cities),
+L.marker([39.0955, -84.5161], {icon: bengalsIcon}).bindPopup("Cincinnati Bengals").addTo(cities),
+L.marker([41.5061, -81.6995], {icon: brownsIcon}).bindPopup("Cleveland Browns").addTo(cities),
+L.marker([32.7473, -97.0945], {icon: cowboysIcon}).bindPopup("Dallas Cowgirls").addTo(cities),
+L.marker([39.7439, -105.0201], {icon: broncosIcon}).bindPopup("Denver Broncos").addTo(cities),
+L.marker([42.3400, -83.0456], {icon: lionsIcon}).bindPopup("Detroit Lions").addTo(cities),
+L.marker([44.5013, -88.0622], {icon: packersIcon}).bindPopup("Green Bay Packers").addTo(cities),
+L.marker([29.6847, -95.4107], {icon: texansIcon}).bindPopup("Houston Texans").addTo(cities),
+L.marker([39.7601, -86.1639], {icon: coltsIcon}).bindPopup("Indianapolis Colts").addTo(cities),
+L.marker([30.3240, -81.6373], {icon: jaguarsIcon}).bindPopup("Jacksonville Jaguars").addTo(cities),
+L.marker([39.0489, -94.4839], {icon: chiefsIcon}).bindPopup("Kansas City Chiefs").addTo(cities),
+L.marker([33.8644, -118.2611], {icon: chargersIcon}).bindPopup("Los Angeles Chargers").addTo(cities),
+L.marker([34.0141, -118.2879], {icon: ramsIcon}).bindPopup("Los Angeles Rams").addTo(cities),
+L.marker([25.9580, -80.2389], {icon: dolphinsIcon}).bindPopup("Miami Dolphins").addTo(cities),
+L.marker([44.9738, -93.2578], {icon: vikingsIcon}).bindPopup("Minnesota Vikings").addTo(cities),
+L.marker([42.0909, -71.2643], {icon: patriotsIcon}).bindPopup("New England Patriots").addTo(cities),
+L.marker([29.9511, -90.0812], {icon: saintsIcon}).bindPopup("Who Dat Saints").addTo(cities),
+L.marker([40.8135, -74.0745], {icon: giantsIcon}).bindPopup("New York Football Giants").addTo(cities),
+L.marker([40.8135, -74.0745], {icon: jetsIcon}).bindPopup("New York Jets").addTo(cities),
+L.marker([36.0909, -115.1833], {icon: raidersIcon}).bindPopup("Oakland Raiders").addTo(cities),
+L.marker([39.9008, -75.1675], {icon: eaglesIcon}).bindPopup("Philadelphia Eagles").addTo(cities),
+L.marker([40.4468, -80.0158], {icon: steelersIcon}).bindPopup("Sixburgh Steelers").addTo(cities),
+L.marker([37.4032, -121.9698], {icon: sanfranIcon}).bindPopup("San Fransisco 49ers").addTo(cities),
+L.marker([47.5952, -122.3316], {icon: seahawksIcon}).bindPopup("Seattle Seahawks").addTo(cities),
+L.marker([27.9759, -82.5033], {icon: buccaneersIcon}).bindPopup("Tampa Bay Buccaneers").addTo(cities),
+L.marker([36.1665, -86.7713], {icon: titansIcon}).bindPopup("Tennessee Titans").addTo(cities),
+L.marker([38.9076, -76.8645], {icon: redskinsIcon}).bindPopup("Washington Redskins").addTo(cities)
 ;
 
 var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -103,3 +103,7 @@ var overlays = {
 };
 
 L.control.layers(baseLayers, overlays).addTo(map);
+
+function cardinalsClick(e) {
+  console.log("hello world")
+};
