@@ -11,15 +11,17 @@ var svgWidth = 500, svgHeight = 300, barPadding = 5;
 var barWidth = (svgWidth / teamSalaries.length);
 
 // Grab the <svg> and set its height and width attributes
-var svg = d3.select('svg')
+var svg = d3.body.select("#right-pane").select("svg")
+    .enter()
+    .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
 
 // Create a bar chart in the <svg> to show average NFL pay per position
-var barChartNfl = svg.selectAll("rectNfl")
+var barChartNfl = svg.selectAll("rect.nflBar")
     .data(nflSalaries) // Assign the data values to each bar
     .enter()
-    .append("rectNfl") // Create the bars
+    .append("rect.nflBar") // Create the bars
     .attr("y", function(d) { // Remember, we draw our bars starting from the top, down to the x-axis
          return svgHeight - d // Starting here...
     })
@@ -27,17 +29,17 @@ var barChartNfl = svg.selectAll("rectNfl")
         return d; 
     })
     .attr("width", barWidth - barPadding) // Make the bars skinnier than their spaces so they don't touch
-    .attr("color", "red") 
+    .attr("color", "red")
     .attr("transform", function (d, i) { // Slide each bar over.  For each data point, this will read like:
         var translate = [2 * barWidth * i, 0]; // .attr("transform, translate(5)"), ...translate(10)"),
         return "translate("+ translate +")"; // ...translate(15)"), etc.
     });
 
 // Exactly as above, but this time creating bars for a team's averages
-var barChartTeam = svg.selectAll("rectTeam")
+var barChartTeam = svg.selectAll("rect.teamBar")
     .data(teamSalaries)
     .enter()
-    .append("rectTeam")
+    .append("rect.teamBar")
     .attr("y", function(d) {
          return svgHeight - d
     })
