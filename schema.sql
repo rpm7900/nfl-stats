@@ -28,7 +28,7 @@ CREATE TABLE player_income(
     rank FLOAT,  
     position VARCHAR,
     team VARCHAR,
-    cap_hit VARCHAR 
+    cap_hit INT 
 );
 
 CREATE TABLE stadium_info(
@@ -88,4 +88,3 @@ CREATE TABLE area_income(
     st_dev INT, 
     sum_w FLOAT
 );
-

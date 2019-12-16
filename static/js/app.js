@@ -2,9 +2,8 @@ d3.json("/api/map_data").then(map_data => {
   console.log('This worked');
   console.log(map_data);
 
-  var lat = map_data.map(row => row.lat);
-  var test = map_data.map(row => LatLng(row.lat, row.long))
-  console.log(lat)
+  var test = map_data.map(row => LatLng(row.lat, row.long));
+  console.log(test)
 });
 
 d3.json("/api/player_income_data").then(player_income_data => {
