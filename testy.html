@@ -1,0 +1,15 @@
+for item in sportList:
+    svg.selectAll('circle')
+                    .data(locations)
+                    .enter()
+                    .append('circle')
+                    .attr('cx', function(d) {return projection([d.lon, d.lat])[0]})
+                    .attr('cy', function(d) {return projection([d.lon, d.lat])[1]})
+                    .attr('r', 4)
+                   .on("mouseover", function(b){
+                       console.log("binish", b)
+                       d3.select(this).style("fill", "red").append('text')
+                       .text("hi");
+                   })
+                   .on("mouseout", function(){d3.select(this).style("fill", "blue");
+                   });
