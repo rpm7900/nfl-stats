@@ -1,6 +1,7 @@
 var teamIcon = L.Icon.extend({
   options: {
       iconSize:     [28.5, 71.25],
+      
   }
 });
 
