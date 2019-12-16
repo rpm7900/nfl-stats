@@ -4,41 +4,51 @@
     <meta charset="UTF-8">
     <title>NFL Stats</title>
     <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
 </head>
-<body>
-    <!-- The biggest bucket.  Everything is in here. -->
-    <div id="container">
 
-        <!-- Page header -->
-        <div id="header"></div>
+<body>
+
+        <header href="https://imgbb.com/" target="index.html">
+            <img src="https://i.ibb.co/Cm3V1h5/nfl-league-logo.png" id="nfl-logo" target="index.html">
+            NFL Income Statistics
+        </header>
+
+    <!-- The biggest bucket.  Everything is in here. -->
+    <div id="container"> 
 
         <!-- The left ~60% of the page -->
         <div class="pane" id="left-pane">
-
+            <h2>Map Heading</h2>
             <!-- Geographical heat map -->
-            <div id="heat-map"></div>
+            <div id="heat-map">The map itself</div>
 
-            <!-- Stuff under the map -->
-            <div id="map-accessories">
-
-                <!-- Key to the map -->
-                <div id="map-key"></div>
-
-                <!-- Toggle to switch between hometown and college -->
-                <div id="origin-toggle"></div>
-            </div>
         </div>
 
         <!-- The right ~40% of the page -->
-        <div class="pane" id="right-pane">
-
-            <!-- A box of text explaining the purpose of the page, etc. -->
-            <div id="introduction"></div>
+        <div class="pane" id="right-pane"> 
+            <h2>Right pannel</h2>
+            <p>Every team in the NFL has a hometown - but what about its players? 
+                How many of the Buffalo Bills are actually from Buffalo, and where did the rest of them first pick up a pigskin? 
+                <br>We set out to identify which teams are the most geographically diverse, and which truly represent local talent. 
+                Click on a city to the left to see from whence its hometown heroes hail. 
+                While you're at it, check out their salaries and see which positions 
+                - and individual players - 
+                make the most, and how they compare to the average income in that area.
+            </p>
         </div>
+
     </div>
+
 
     <!-- Source the javascript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="app.js"></script>
 </body>
+<footer>
+<br>Background Photo Credit:<a id= "credits" href="https://unsplash.com/@aussiedave?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Dave Adamson"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Dave Adamson</span></a>
+<br><a href="https://ibb.co/3ybFhFK" ><img id="steelers" src="https://i.ibb.co/HDyPgPZ/Steelers-PNG-1.png"></a>
+<br>*** This webpage is in no way associated with the NFL *** 
+</footer>
+
 </html>
