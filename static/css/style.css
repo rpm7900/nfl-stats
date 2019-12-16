@@ -1,4 +1,4 @@
-nfl {
+/*
     black: #000;
     grey1: #666;
     grey2: #999;
@@ -12,7 +12,7 @@ nfl {
     red1: #571D1F;
     red2: #8B0F04;
     red3: #FF0000;
-}
+*/
 
 body {
     color: #003399;
@@ -62,7 +62,7 @@ footer {
     box-shadow: 2px 2px 2px 1px #666;
     color: #003399;
     width: 60%;
-    height: 500px;
+    height: auto;
 }
 
 #right-pane {
@@ -73,10 +73,13 @@ footer {
     height: 500px;
 }
 
-#heat-map {
+#map {
     background-color: #fff;
     color: black;
     font-weight: normal;
+    width: 90%;
+    height: 80%;
+    margin: 10px;
 }
 
 p {
