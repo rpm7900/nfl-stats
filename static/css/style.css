@@ -21,7 +21,6 @@ body {
     background: url(https://i.ibb.co/5nWL8jJ/dave-adamson-r-PUDww-LSoh-I-unsplash-1.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
-    overflow: hidden;
 }
 
 header {
@@ -40,7 +39,6 @@ header {
 }
 
 footer {
-    position: fixed;
     bottom: 10px;
     color: #fff;
     text-shadow: 2px 2px #000;
@@ -48,7 +46,6 @@ footer {
 
 #container {
     display: flex;
-    overflow: hidden;
 }
 
 .pane {
@@ -71,6 +68,7 @@ footer {
     background-color: #fff;
     box-shadow: 2px 2px 2px 1px #666;
     height: 500px;
+    padding: 10px;
 }
 
 #map {

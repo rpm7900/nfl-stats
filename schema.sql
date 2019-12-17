@@ -64,7 +64,8 @@ CREATE TABLE stadium_info(
     div VARCHAR,
     capacity FLOAT ,
     roof_type VARCHAR,
-    team VARCHAR PRIMARY KEY
+    team VARCHAR PRIMARY KEY,
+    abbreviation VARCHAR
 );
 
 CREATE TABLE area_income(
