@@ -104,6 +104,11 @@ var overlays = {
 
 L.control.layers(baseLayers, overlays).addTo(map);
 
-function Click(e) {
+function Click(teamName) {
   console.log("hello world")
+  // This is the function that runs when you click on a city
+  // It should clear #right-pane and populate the bar graph and the bubble graphic in the same place
+  // Will need to edit each end-of-line instance of "Click" (the part that actually calls the function)...
+  // ... to take in the team name as an argument to determine which data to fetch
+  // e.g. "Click(jaguars)" instead of just "Click"
 };
