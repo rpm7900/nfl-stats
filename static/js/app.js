@@ -1,18 +1,39 @@
-// Establish size of chart and padding between bars
-var svgWidth = d3.select("#right-pane").style("width").slice(0, -2)
-var svgHeight = d3.select("#right-pane").style("height").slice(0, -2)
+// // Establish size of chart and padding between bars
+// var svgWidth = d3.select("#right-pane").style("width").slice(0, -2)
+// var svgHeight = d3.select("#right-pane").style("height").slice(0, -2)
 
-console.log("Height", svgHeight, "Width", svgWidth)
+// console.log("Height", svgHeight, "Width", svgWidth)
 
-// var svgWidth = 400, svgHeight = 240
-var barPadding = 5;
+// // var svgWidth = 400, svgHeight = 240
+// var barPadding = 5;
 
 // Grab the <svg> and set its height and width attributes
-var svg = d3.select("#right-pane").append("svg")
-  .attr("width", svgWidth)
-  .attr("height", svgHeight);
+// var svg = d3.select("#right-pane").append("svg")
+//   .attr("width", svgWidth)
+//   .attr("height", svgHeight);
 
 function createBarGraph(team) {
+  
+  var svgWidth = d3.select("#right-pane").style("width").slice(0, -2);
+  var svgHeight = d3.select("#right-pane").style("height").slice(0, -2);
+
+  d3.select('#right-pane').selectAll("*").remove()
+  var svg = d3.select("#right-pane")
+    .append("svg")
+    .attr("width", svgWidth)
+    .attr("height", svgHeight);
+  
+  // Establish size of chart and padding between bars
+
+  console.log("Height", svgHeight, "Width", svgWidth)
+
+  // var svgWidth = 400, svgHeight = 240
+  var barPadding = 5;
+
+  // var svg = d3.select("#right-pane").append("svg")
+  // .attr("width", svgWidth)
+  // .attr("height", svgHeight);
+  
   Promise.all([
     d3.json("/api/position_income_data"),
     d3.json(`/api/team_position_income_data/${team}`)
@@ -33,7 +54,7 @@ function createBarGraph(team) {
       .range([svgHeight - 40, 20]);
 
     // Clear the chart
-    svg.selectAll("*").remove()
+    // svg.selectAll("*").remove()
 
     var rightAxis = d3.axisRight(axisHeight);
 
@@ -70,7 +91,7 @@ function createBarGraph(team) {
         var translate = [2 * barWidth * i, 0]; // .attr("transform, translate(0)"), ...translate(10)"),
         return "translate(" + translate + ")"; // ...translate(20)"), etc.
       });
-
+      
     // Exactly as above, but this time creating bars for a team's averages
     svg.selectAll("rect.teamBar")
       .data(teamPositionIncomeData)
