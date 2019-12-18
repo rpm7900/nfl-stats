@@ -1,0 +1,112 @@
+/*
+    black: #000;
+    grey1: #666;
+    grey2: #999;
+    grey3: #CCC;
+    green1: #003300;
+    green2: #006633;
+    green3: #339933;
+    blue1: #003399;
+    blue2: #0067B1;
+    blue3: #007DC3;
+    red1: #571D1F;
+    red2: #8B0F04;
+    red3: #FF0000;
+*/
+
+body {
+    color: #003399;
+    font-family: orbitron;
+    background-color: #999;
+    background: url(https://i.ibb.co/5nWL8jJ/dave-adamson-r-PUDww-LSoh-I-unsplash-1.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+header {
+    font-family: orbitron;
+    font-size: 30px;
+    color: #fff;
+    background-color: #003399;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+}
+
+#nfl-logo {
+    height: 35px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+footer {
+    bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    
+}
+
+#container {
+    display: flex;
+}
+
+.pane {
+    font-weight: bold;
+    margin: 5px;
+    padding-left: 10px;
+}
+
+#left-pane {
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 1px #666;
+    color: #003399;
+    width: 60%;
+    height: auto;
+}
+
+#right-pane {
+    color: #003399;
+    width: 40%;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 1px #666;
+    height: 500px;
+    padding: 10px;
+}
+
+#map {
+    background-color: #fff;
+    color: black;
+    font-weight: normal;
+    width: 90%;
+    height: 80%;
+    margin: 10px;
+}
+
+p {
+    font-weight: normal;
+    color: #000;
+    padding: 10px;
+    line-height: 150%;
+}
+
+h2 {
+    color: #FF0000;
+}
+
+#credits {
+    color: #fff;
+    text-decoration: none;
+    padding:4px 6px;
+    font-family: orbitron;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    display: inline-block;
+    border-radius: 3px; 
+}
+
+#steelers {
+    height: 75px;
+}

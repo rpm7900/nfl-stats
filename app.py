@@ -45,7 +45,7 @@ def map_query():
     stadium = Base.classes.stadium_info
 
     # data points for map 
-    stadium_results = session.query(stadium.team,stadium.lat,stadium.long).all()
+    stadium_results = session.query(stadium.team, stadium.abbreviation, stadium.lat, stadium.long).all()
 
      #Close session
     session.close()
@@ -53,28 +53,37 @@ def map_query():
     stadium_records = [dict(zip(row.keys(), row)) for row in stadium_results]
     return jsonify(stadium_records)
 
-@app.route("/api/player_income_data")
+@app.route("/api/position_income_data")
 def player_income_query():
     # Create our session (link) from Python to the DB
     session = Session(engine)
     player_income = Base.classes.player_income
     # data points for bar 
-    player_income_results = session.query(player_income.position,func.round(func.avg(player_income.cap_hit),2).label('avg_income')).group_by(player_income.position).all()
+    position_income_results = session \
+        .query(player_income.position, func.round(func.avg(player_income.cap_hit), 2).label('avg_income')) \
+        .group_by(player_income.position) \
+        .order_by(player_income.position) \
+        .all()
 
      #Close session
     session.close()
 
-    player_income_records = [dict(zip(row.keys(), row)) for row in player_income_results]
-    print(player_income_records)
-    return jsonify(player_income_records)
+    position_income_results = [dict(zip(row.keys(), row)) for row in position_income_results]
+    print(position_income_results)
+    return jsonify(position_income_results)
 
-@app.route("/api/team_income_data")
-def team_income_query():
+@app.route("/api/team_position_income_data/<string:team>")
+def team_income_query(team):
 
     # Create our session (link) from Python to the DB
     session = Session(engine)
     player_income = Base.classes.player_income
-    team_income_results = session.query(player_income.team,func.round(func.avg(player_income.cap_hit),2).label('avg_income')).group_by(player_income.team).all()
+    team_income_results = session \
+        .query(player_income.position, func.round(func.avg(player_income.cap_hit), 2) .label('avg_income')) \
+        .filter(player_income.team == team) \
+        .group_by(player_income.position) \
+        .order_by(player_income.position) \
+        .all()
 
     #Close session
     session.close()

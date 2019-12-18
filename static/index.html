@@ -1,44 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>NFL Stats</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
 </head>
+
 <body>
+
+    <header href="https://imgbb.com/" target="index.html">
+        <img src="https://i.ibb.co/Cm3V1h5/nfl-league-logo.png" id="nfl-logo" target="index.html">
+        NFL Income Statistics
+    </header>
+
     <!-- The biggest bucket.  Everything is in here. -->
     <div id="container">
 
-        <!-- Page header -->
-        <div id="header"></div>
-
         <!-- The left ~60% of the page -->
         <div class="pane" id="left-pane">
+            <h2>NFL Team Locations</h2>
 
-            <!-- Geographical heat map -->
-            <div id="heat-map"></div>
+            <div id="map"></div>
 
-            <!-- Stuff under the map -->
-            <div id="map-accessories">
-
-                <!-- Key to the map -->
-                <div id="map-key"></div>
-
-                <!-- Toggle to switch between hometown and college -->
-                <div id="origin-toggle"></div>
-            </div>
         </div>
 
         <!-- The right ~40% of the page -->
         <div class="pane" id="right-pane">
-
-            <!-- A box of text explaining the purpose of the page, etc. -->
-            <div id="introduction"></div>
+            <h2>GET TO CLICKING!</h2>
+            <p>The map to the left shows the contiguous United States and the geographical locations therein of its favorite oblong-sportsball teams. 
+                Click a team logo for a lovely visual breakdown of that team's players' salaries and comparison to the averages for the same from the NFL at large.
+            </p> 
         </div>
-    </div>
 
-    <!-- Source the javascript -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="js/app.js"></script>
+
+        </div>
+
+
+        <!-- Source the javascript -->
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="js/app.js"></script>
 </body>
+<footer>
+    <br>Background Photo Credit:<a id="credits"
+        href="https://unsplash.com/@aussiedave?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+        target="_blank" rel="noopener noreferrer"
+        title="Download free do whatever you want high-resolution photos from Dave Adamson"><span
+            style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                viewBox="0 0 32 32">
+                <title>unsplash-logo</title>
+                <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+            </svg></span><span style="display:inline-block;padding:2px 3px">Dave Adamson</span></a>
+    <br><a href="https://ibb.co/3ybFhFK"><img id="steelers" src="https://i.ibb.co/HDyPgPZ/Steelers-PNG-1.png"></a>
+    <br> ... even though they got stomped by the Buffalo Bills on Sunday.
+    <br>
+    <br>*** This webpage is in no way associated with the NFL ***
+</footer>
+
 </html>
